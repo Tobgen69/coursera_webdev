@@ -37,5 +37,35 @@
   - first download images folder and put them into `.public/assets/`
   - add folder `components` to `src` path to store components in an organized way
   - create first component `MenuComponent.js`
+- Video: "React Components: State and Props"
+  - component can store its own local info in its "state" 
+  - state
+    -state is private and controlled by component but can be passed as props to children  
+    - only class components can have a local state
+    - state is declared within constructor
+    - updates should be done using `setState()`
+  - props
+    - jsx attributes are passed into component as single object "props"
+    - cannot modify props within component
+  - handling events
+    - use camelCase to specify events
+    - pass funcition as event handler
+    - `<Card onClick={() => this.opnDishSelect(dish)}`
+  - sometimes several components may share the same data
+  - best to move shared state to a common ancestor component
+  - lists and keys
+    - lists handled similar to JS
+    - keys should be given to elements inside the array
+- Video: Exercise (Video): React Components Part 2
+  - goal is to get state/data from menu component into ancestor component e.g. `AppComponent`
+  - create directory `shared` with file `dishes.js` which is a constant holding the data
+  - now we can add a constructor to the `App.js` component and define the state with data `dishes` 
+    being the constant
+  - now we can display the Menu using the `App.js` state
+  - also, we can remove the `MenuComponent.js` data, since no longer necessary
+  - however, for it to work, we need to change `this.state.dishes` to `this.props.dishes` to 
+    use the props of the upper component now.
+  
+  
   
     

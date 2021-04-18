@@ -1,19 +1,43 @@
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import {Navbar, NavbarBrand,} from "reactstrap";
 import Menu from './components/MenuComponent';
 import './App.css';
+import {DISHES} from "./shared/dishes";
 
-function App() {
-  return (
-    <div>
-      <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="/">
-            A NavbarBrand within Navbar
-          </NavbarBrand>
+//function App() {
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dishes: DISHES
+    }
+  }
+
+  render() {
+    return (
+        <div>
+          <Navbar dark color="primary">
+            <div className="container">
+              <NavbarBrand href="/">
+                A NavbarBrand within Navbar
+              </NavbarBrand>
+            </div>
+          </Navbar>
+          <Menu dishes={this.state.dishes}/>
         </div>
-      </Navbar>
-      {/*<Navbar dark color="primary">*/}
+    );
+  }
+}
+
+export default App;
+
+
+
+
+   {/*<Navbar dark color="primary">*/}
       {/*  <div className="container">*/}
       {/*    <NavbarBrand href="/">*/}
       {/*      A second NavbarBrand within second Navbar*/}
@@ -23,7 +47,6 @@ function App() {
       {/*    </NavbarBrand>*/}
       {/*  </div>*/}
       {/*</Navbar>*/}
-        <Menu />
       {/*<header className="App-header">*/}
       {/*  <img src={logo} className="App-logo" alt="logo" />*/}
       {/*  <p>*/}
@@ -38,8 +61,3 @@ function App() {
       {/*    Learn React*/}
       {/*  </a>*/}
       {/*</header>*/}
-    </div>
-  );
-}
-
-export default App;
